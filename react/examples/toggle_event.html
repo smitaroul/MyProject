@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My React Project</title>
+	<script type="text/javascript" src="../js/react.js"></script>
+	<script type="text/javascript" src="../js/JSXTransformer.js"></script>	
+</head>
+<body>
+	<!-- // react code goes here 
+		// https://scotch.io/tutorials/learning-react-getting-started-and-concepts -->
+	<div id="mount-point"></div>
+	<script type="text/jsx">		
+		/** @jsx React.DOM */
+		var LikeButton = React.createClass({
+			getInitialState: function(){
+				return {liked: false};
+			},
+			handleClick: function(){
+				this.setState({liked: !this.state.liked});
+			},
+			render: function(){
+				var text = this.state.liked ? 'like' : 'haven\'t liked';
+				return (
+					<p onClick={this.handleClick}>
+					You {text} this. Click to toggle.
+					</p>
+				);
+			}
+		});
+
+		React.renderComponent(
+		    <LikeButton  />,
+		    document.getElementById('mount-point')
+		);
+	</script>
+</body>
+</html>

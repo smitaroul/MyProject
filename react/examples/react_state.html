@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My React Project</title>
+	<script type="text/javascript" src="../js/react.js"></script>
+	<script type="text/javascript" src="../js/JSXTransformer.js"></script>
+</head>
+<body>
+	<!-- // react code goes here 
+		// https://scotch.io/tutorials/learning-react-getting-started-and-concepts -->
+	<div id="mount-point"></div>
+	<script type="text/jsx">		
+		/** @jsx React.DOM */
+		var MyComponent = React.createClass({
+			getInitialState: function(){
+				return {
+					count: 5
+				}
+			},
+		    render: function(){
+		        return (
+		            <h1>{this.state.count}</h1>
+		        );
+		    }
+		});
+
+		React.renderComponent(
+		    <MyComponent />,
+		    document.getElementById('mount-point')
+		);
+	</script>
+</body>
+</html>

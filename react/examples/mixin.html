@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My React Project</title>
+	<script type="text/javascript" src="../js/react.js"></script>
+	<script type="text/javascript" src="../js/JSXTransformer.js"></script>	
+</head>
+<body>
+	<p>MIXIN helps in reuse code.</p>
+	<!-- // react code goes here 
+		// https://scotch.io/tutorials/learning-react-getting-started-and-concepts -->
+	<div id="mount-point"></div>
+	<script type="text/jsx">		
+		/** @jsx React.DOM */
+		var setIntervalMixin = {/* initialize mixin can be use acrossed the functions */
+			componentWillMount
+
+		};
+
+		React.renderComponent(
+		    <Avatar username="smita.r.nayak" />,
+		    document.getElementById('mount-point')
+		);
+	</script>
+</body>
+</html>

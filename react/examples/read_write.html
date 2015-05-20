@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My React Project</title>
+	<script type="text/javascript" src="../js/react.js"></script>
+	<script type="text/javascript" src="../js/JSXTransformer.js"></script>
+</head>
+<body>
+	<!-- // react code goes here 
+		// https://scotch.io/tutorials/learning-react-getting-started-and-concepts -->
+	<div id="mount-point"></div>
+	<script type="text/jsx">		
+		/** @jsx React.DOM */
+		var MyComponent = React.createClass({
+			getInitialState: function(){
+				return {
+					name: ""
+				}
+			},
+			changeText: function(event){
+				this.setState({
+					name: event.target.value
+				});
+			},
+		    render: function(){
+		        return (
+		        	<p>
+		        	Hello, <input type="text" placeholder="Your name here" onKeyUp={this.changeText} />!
+		        	<br/> hii, <b>{this.state.name}</b> {this.props.name} 
+		            <br/> It is {this.props.date.toTimeString()}
+		            </p>
+		        );
+		    }
+		});
+
+		setInterval(function(){
+			React.renderComponent(
+			    <MyComponent date={new Date()} name=" welcome to my world" />,
+			    document.getElementById('mount-point')
+			);
+		}, 500);
+		
+	</script>
+</body>
+</html>
