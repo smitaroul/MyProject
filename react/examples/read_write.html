@@ -25,7 +25,7 @@
 		    render: function(){
 		        return (
 		        	<p>
-		        	Hello, <input type="text" placeholder="Your name here" onKeyUp={this.changeText} />!
+		        	Hello, <input type="text" placeholder="Your name here" onChange={this.changeText} />!
 		        	<br/> hii, <b>{this.state.name}</b> {this.props.name} 
 		            <br/> It is {this.props.date.toTimeString()}
 		            </p>

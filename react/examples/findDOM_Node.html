@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My React Project</title>
+	<script type="text/javascript" src="https://fb.me/react-with-addons-0.13.0-rc1.min.js"></script>
+	<script type="text/javascript" src="https://fb.me/JSXTransformer-0.13.0-rc1.js"></script>
+</head>
+<body>
+	<!-- // react code goes here 
+		// https://scotch.io/tutorials/learning-react-getting-started-and-concepts -->
+	<div id="mount-point"></div>
+	<script type="text/jsx">		
+		/** @jsx React.DOM */
+		var MyComponent = React.createClass({
+			handleClick: function(){
+				React.findDOMNode(this.refs.myTextInput).focus();
+			},
+		    render: function(){
+		        return (
+		        	<div>
+		        	<input type="text" refs="myTextInput" />
+		        	<input type="button" value="Focus on input field" onClick={this.handleClick} />
+		        	</div>
+		        );
+		    }
+		});
+
+		React.render(
+		    <MyComponent />,
+		    document.getElementById('mount-point')
+		);
+		
+	</script>
+</body>
+</html>
