@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My React Project</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>	
+</head>
+<body>
+	<p>Manupulation of class name </p>
+	<ul>
+		<li>1st block using normal react code.</li>
+		<li>2nd block using addons.</li>
+	</ul>
+	<!-- // react code goes here 
+		// http://facebook.github.io/react/docs/animation.html -->
+
+	<div id="mount-point"></div>
+	<div id="mount-point1"></div>
+	<script type="text/jsx">		
+		/** @jsx React.DOM */
+		var ClassNameManupulation = React.createClass({			
+			render: function(){
+				var classString = "message";
+				if(this.props.isRead){
+					classString += " message-isread";
+				}
+				if(this.props.isImportant){
+					classString += " message-isimportant";
+				}
+				return (
+					<div className={classString}>
+					Great 1, i will be there as {classString}.
+					</div>
+				);
+			}
+		});
+
+		React.render(
+		    <ClassNameManupulation isImportant="true"/>,
+		    document.getElementById('mount-point')
+		);
+
+		//USING ADDONS
+		var ClassManupulation = React.createClass({
+			render: function(){
+				var cx = React.addons.classSet;
+				var classes = cx({
+					'message': true,
+					'message-isimportant': this.props.isImportant,
+					'message-isread': this.props.isRead
+				});
+				return <div className={classes}>Great 2, i will be there as {classes}</div>
+			}
+		}); 
+
+		React.render(
+			<ClassManupulation isRead="true" />,
+			document.getElementById('mount-point1')
+		);
+	</script>
+</body>
+</html>

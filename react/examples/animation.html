@@ -2,25 +2,25 @@
 <html>
 <head>
 	<title>My React Project</title>
-	<script type="text/javascript" src="../js/react.js"></script>
-	<script type="text/javascript" src="../js/JSXTransformer.js"></script>	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>	
 </head>
 <body>
-	<p>MIXIN helps in reuse code.React provides a <b>ReactTransitionGroup</b> addon component as a low-level API for animation, and a <b>ReactCSSTransitionGroup</b> for easily implementing basic CSS animations and transitions.</p>
+	<p>React provides a <b>ReactTransitionGroup</b> addon component as a low-level API for animation, and a <b>ReactCSSTransitionGroup</b> for easily implementing basic CSS animations and transitions.</p>
 	<!-- // react code goes here 
 		// http://facebook.github.io/react/docs/animation.html -->
 
 	<div id="mount-point"></div>
 	<script type="text/jsx">		
 		/** @jsx React.DOM */
+		
 		var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
-
 		var TodoList = React.createClass({
 			getInitialState: function(){
 				return {items: ['hello', 'world', 'click', 'me']};
 			},
 			handledAdd: function(){
-				var newItems = this.state.items.concate([prompt('Enter some text')]);
+				var newItems = this.state.items.concat([prompt('Enter some text')]);
 				this.setState({items: newItems});
 			},
 			handleRemove: function(){
@@ -32,7 +32,7 @@
 				var items = this.state.items.map(function(item, i){
 					return (
 						<div key={item} onClick={this.handleRemove.bind(this, i)}>
-						{items}
+						{item}
 						</div>
 					);
 				}.bind(this));
@@ -47,7 +47,7 @@
 			}
 		});
 
-		React.renderComponent(
+		React.render(
 		    <TodoList />,
 		    document.getElementById('mount-point')
 		);
